@@ -1,5 +1,6 @@
 package SiteLocation.SiteLocation.persistence;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.AttributeOverride;
@@ -19,18 +20,17 @@ import javax.persistence.Table;
     @AttributeOverride(name="password", column=@Column(name="PASSWORD")),
     @AttributeOverride(name="email", column=@Column(name="EMAIL"))
 })
-public class SimpleUser extends User {
+public class SimpleUser extends User implements Serializable {
 	
 	
 	private long phoneNumber;
-	
 	
 	@OneToOne
 	private Adresse adresse;
 	private Runk runk;
 	
-	@OneToMany
-	private List<Application> listApplicatins;
+	//@OneToMany
+	//private List<Application> listApplicatins;
 	
 	public long getPhoneNumber() {
 		return phoneNumber;
@@ -56,13 +56,7 @@ public class SimpleUser extends User {
 		this.runk = runk;
 	}
 
-	public List<Application> getListApplicatins() {
-		return listApplicatins;
-	}
-
-	public void setListApplicatins(List<Application> listApplicatins) {
-		this.listApplicatins = listApplicatins;
-	}
+	
 
 	
 	

@@ -1,11 +1,13 @@
 package SiteLocation.SiteLocation.persistence;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 @Entity
-public class Adresse {
+public class Adresse implements Serializable{
 	@Id
 	@GeneratedValue
 	 private Long id; 
@@ -14,8 +16,7 @@ public class Adresse {
 	 private String city;
 	 private String zipCode;
 	 
-	 @OneToOne(mappedBy="adresse")
-	 private SimpleUser user;
+
 
 	public Long getId() {
 		return id;
@@ -57,13 +58,7 @@ public class Adresse {
 		this.zipCode = zipCode;
 	}
 
-	public SimpleUser getUser() {
-		return user;
-	}
-
-	public void setUser(SimpleUser user) {
-		this.user = user;
-	}
+	
 
 	public Adresse() {
 		super();

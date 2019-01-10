@@ -1,5 +1,7 @@
 package SiteLocation.SiteLocation.persistence;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,15 +11,24 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class Product {
+public class Product implements Serializable {
 	@Id
-   @GeneratedValue 
+    @GeneratedValue 
 	private int id;
-	private String description;
-	private String category;
+	private String name;
+	private double price;
 	
-	@OneToOne(mappedBy="product",cascade=CascadeType.REMOVE)
-	private Publication publication;
+	
+	
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -27,39 +38,26 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getName() {
+		return name;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCategory() {
-		return category;
-	}
+	
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public Publication getPublication() {
-		return publication;
-	}
-
-	public void setPublication(Publication publication) {
-		this.publication = publication;
-	}
 
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(String description, String category) {
+	public Product(String name, double price) {
 		super();
-		this.description = description;
-		this.category = category;
+		this.name = name;
+		this.price = price;
 	}
 	
 	

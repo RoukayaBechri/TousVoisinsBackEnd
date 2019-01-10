@@ -1,13 +1,25 @@
 package SiteLocation.SiteLocation.persistence;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
+
+/**@Table(name="Offre")
+@AttributeOverrides({
+    @AttributeOverride(name="description", column=@Column(name="description")),
+    @AttributeOverride(name="datePub", column=@Column(name="datePub")),
+    @AttributeOverride(name="isValidState", column=@Column(name="isValidState"))
+})*/
 @Entity
-@DiscriminatorValue(value="Offer")
-public class Offre extends Publication {
+@DiscriminatorValue(value="Offre")
+public class Offre extends Publication implements Serializable {
 	private String offerType;
 	int offerDuration;
 	private String offerAdress;
@@ -33,20 +45,12 @@ public class Offre extends Publication {
 	
 		// TODO Auto-generated constructor stub
 	
-	public Offre(String offerType, int offerDuration, String offerAdress) {
-		super();
-		this.offerType = offerType;
-		this.offerDuration = offerDuration;
-		this.offerAdress = offerAdress;
-	}
+	
 	public Offre() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Offre(String description, Date datePub, boolean isValidState) {
-		super(description, datePub, isValidState);
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 
 }

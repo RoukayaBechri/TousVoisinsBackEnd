@@ -1,40 +1,37 @@
 package SiteLocation.SiteLocation.persistence;
 
+import java.io.Serializable;
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+@Entity
+@DiscriminatorValue(value="Service")
 
-public class Service extends Product {
+public class Service extends Product implements Serializable {
+ private SubCategService catService;
+  
 
-  private String category;
-  private SubCategService subCategory;
-  private double price;
-public String getCategory() {
-	return category;
+public Service(SubCategService catService) {
+	super();
+	this.catService = catService;
 }
-public void setCategory(String category) {
-	this.category = category;
+
+
+public SubCategService getCatService() {
+	return catService;
 }
-public SubCategService getSubCategory() {
-	return subCategory;
+
+
+public void setCatService(SubCategService catService) {
+	this.catService = catService;
 }
-public void setSubCategory(SubCategService subCategory) {
-	this.subCategory = subCategory;
-}
-public double getPrice() {
-	return price;
-}
-public void setPrice(double price) {
-	this.price = price;
-}
+
+
 public Service() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Service(String category, SubCategService subCategory, double price) {
-	super();
-	this.category = category;
-	this.subCategory = subCategory;
-	this.price = price;
-}
+
    
 }

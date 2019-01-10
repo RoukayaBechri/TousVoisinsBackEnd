@@ -1,15 +1,27 @@
 package SiteLocation.SiteLocation.persistence;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 @Entity
+/**@Table(name="Supply")
+@AttributeOverrides({
+    @AttributeOverride(name="description", column=@Column(name="description")),
+    @AttributeOverride(name="datePub", column=@Column(name="datePub")),
+    @AttributeOverride(name="isValidState", column=@Column(name="isValidState"))
+})*/
+
 @DiscriminatorValue(value="Supply")
-public class Supply extends Publication {
+public class Supply extends Publication implements Serializable {
 	
 	private TypeSypply category;
 	private int Duration;
@@ -17,27 +29,29 @@ public class Supply extends Publication {
 	private String city;
 	private String state;
 	
+	public Supply(TypeSypply category, int duration, float budget, String city, String state) {
+		super();
+		this.category = category;
+		Duration = duration;
+		this.budget = budget;
+		this.city = city;
+		this.state = state;
+	}
+
+	public int getDuration() {
+		return Duration;
+	}
+
+	public void setDuration(int duration) {
+		Duration = duration;
+	}
+
 	public Supply() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Supply(String description, Date datePub, boolean isValidState) {
-		super(description, datePub, isValidState);
-		// TODO Auto-generated constructor stub
-	}
 
-	
-public Supply(String description, TypeSypply category, int duration, float budget, String city, String state) {
-		super();
-		
-	
-		this.category = category;
-		this.Duration=duration;
-		this.budget = budget;
-		this.city = city;
-		this.state=state;
-	}
 	
 	public String getState() {
 		return state;
