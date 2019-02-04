@@ -7,12 +7,27 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class FeedbackPk implements Serializable {
+
+	private int idSimpleUser1;
+	private int idSimpleUser2;
+	public int getIdSimpleUser1() {
+		return idSimpleUser1;
+	}
+	public void setIdSimpleUser1(int idSimpleUser1) {
+		this.idSimpleUser1 = idSimpleUser1;
+	}
+	public int getIdSimpleUser2() {
+		return idSimpleUser2;
+	}
+	public void setIdSimpleUser2(int idSimpleUser2) {
+		this.idSimpleUser2 = idSimpleUser2;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idPublication;
-		result = prime * result + idUser;
+		result = prime * result + idSimpleUser1;
+		result = prime * result + idSimpleUser2;
 		return result;
 	}
 	@Override
@@ -24,14 +39,17 @@ public class FeedbackPk implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		FeedbackPk other = (FeedbackPk) obj;
-		if (idPublication != other.idPublication)
+		if (idSimpleUser1 != other.idSimpleUser1)
 			return false;
-		if (idUser != other.idUser)
+		if (idSimpleUser2 != other.idSimpleUser2)
 			return false;
 		return true;
 	}
-	private int idUser;
-	private int idPublication;
+	
+	
+	
+	
+	
 	
 	
 

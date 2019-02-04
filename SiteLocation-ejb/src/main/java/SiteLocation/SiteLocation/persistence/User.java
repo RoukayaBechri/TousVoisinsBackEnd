@@ -15,43 +15,58 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue()
 	private int id;
-	private String name;
-	private String password;
-	private String email;
+	private String userName;
+	private String userLastName;
+	private String userPassword;
+	private String userEmail;
+	public User() {
+		super();
+		
+	}
+	public User( String userName, String userLastName, String userPassword, String userEmail) {
+		super();
+		
+		this.userName = userName;
+		this.userLastName = userLastName;
+		this.userPassword = userPassword;
+		this.userEmail = userEmail;
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getPassword() {
-		return password;
+	public String getUserLastName() {
+		return userLastName;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUserLastName(String userLastName) {
+		this.userLastName = userLastName;
 	}
-	public String getEmail() {
-		return email;
+	public String getUserPassword() {
+		return userPassword;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String getUserEmail() {
+		return userEmail;
 	}
-	public User(String name, String password, String email) {
-		super();
-		this.name = name;
-		this.password = password;
-		this.email = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 

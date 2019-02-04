@@ -21,21 +21,24 @@ import javax.persistence.Table;
 @DiscriminatorValue(value="Offre")
 public class Offre extends Publication implements Serializable {
 	private String offerType;
-	int offerDuration;
+	String dateExpiration;
 	private String offerAdress;
+	
+	
 
+	public String getDateExpiration() {
+		return dateExpiration;
+	}
+	public void setDateExpiration(String dateExpiration) {
+		this.dateExpiration = dateExpiration;
+	}
 	public String getOfferType() {
 		return offerType;
 	}
 	public void setOfferType(String offerType) {
 		this.offerType = offerType;
 	}
-	public int getOfferDuration() {
-		return offerDuration;
-	}
-	public void setOfferDuration(int offerDuration) {
-		this.offerDuration = offerDuration;
-	}
+	
 	public String getOfferAdress() {
 		return offerAdress;
 	}
@@ -50,6 +53,16 @@ public class Offre extends Publication implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Offre(String nomPublication, String description, Date datePub, boolean isValidState, Product product, SimpleUser simpleUser, String offerType, String dateExpiration, String offerAdress) {
+		super(nomPublication, description, datePub, isValidState, product, simpleUser);
+		this.offerType = offerType;
+		this.dateExpiration = dateExpiration;
+		this.offerAdress = offerAdress;
+	}
+	
+	
+	
 	
 	
 

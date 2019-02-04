@@ -15,21 +15,9 @@ public class Product implements Serializable {
 	@Id
     @GeneratedValue 
 	private int id;
-	private String name;
-	private double price;
+	private String productName;
+	private double productPrice;
 	
-	
-	
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-
-
 	public int getId() {
 		return id;
 	}
@@ -38,27 +26,53 @@ public class Product implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
+
+	public double getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public Product() {
+		super();
+		
+	}
+
+	public Product(String productName, double productPrice) {
+		super();
+		
+		this.productName = productName;
+		this.productPrice = productPrice;
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	
 
 
-	public Product() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	public Product(String name, double price) {
-		super();
-		this.name = name;
-		this.price = price;
-	}
+	
+	
+	
+
+
+	
+
+	
 	
 	
 	

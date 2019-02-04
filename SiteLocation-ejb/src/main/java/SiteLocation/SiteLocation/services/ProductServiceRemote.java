@@ -20,7 +20,7 @@ import SiteLocation.SiteLocation.persistence.Service;
 import SiteLocation.SiteLocation.persistence.SubCategObject;
 
 @Remote
-@Path("/product")
+
 public interface ProductServiceRemote extends Serializable {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)

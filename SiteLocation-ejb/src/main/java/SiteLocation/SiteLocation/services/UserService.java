@@ -1,5 +1,6 @@
 package SiteLocation.SiteLocation.services;
 
+import java.sql.Blob;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -35,6 +36,52 @@ public class UserService implements UserInterfaceRemote {
 	public List<SimpleUser> getAllUser() {
 		Query q=em.createQuery("Select u from SimpleUser u");
 		return q.getResultList();
+	}
+	
+	
+
+	
+
+	
+	
+	
+
+	@Override
+	public User addUserPhoto(int idUser, String photo) {
+		SimpleUser u=em.find(SimpleUser.class, idUser);
+		u.setUserPhoto(photo);
+		return u;
+	}
+	
+	
+
+	@Override
+	public User updateUser(int idUser, SimpleUser user) {
+		/*
+		SimpleUser u=em.find(SimpleUser.class, idUser);
+		u.setUserName(user.getUserName());
+		u.setUserLastName(user.getUserLastName());
+		u.setUserType(user.getUserType());
+		u.setUserAdresse(user.getUserAdresse());
+		u.setUserBirthDate(user.getUserBirthDate());
+		u.setUserDescription(user.getUserDescription());
+		u.setUserGender(user.getUserGender());
+		u.setUserPhone(user.getUserPhone());
+		u.setUserEmail(user.getUserEmail());
+		u.setUserPassword(user.getUserPassword());
+		u.setUserPhoto(user.getUserPhoto());
+		return user;
+		*/
+		user.setId(idUser);
+		em.merge(user);
+		return user;
+	}
+
+	@Override
+	public String getPhotoByUser(int idUser) {
+		SimpleUser u=em.find(SimpleUser.class, idUser);
+	    return	u.getUserPhoto().toString();
+		
 	}
 
 	@Override

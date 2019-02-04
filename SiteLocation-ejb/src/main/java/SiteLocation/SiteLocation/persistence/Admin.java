@@ -11,11 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Admin")
-@AttributeOverrides({
-    @AttributeOverride(name="name", column=@Column(name="FULLNAME")),
-    @AttributeOverride(name="password", column=@Column(name="PASSWORD")),
-    @AttributeOverride(name="email", column=@Column(name="EMAIL"))
-})
+
+
     
 public class Admin extends User {
 	private TypeAdmin adminType;
@@ -33,9 +30,9 @@ public class Admin extends User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Admin(String name, String password, String email) {
-		super(name, password, email);
-		// TODO Auto-generated constructor stub
+	public Admin(String name, String lastName,  String password, String email) {
+		super( name,  lastName,  password, email);
+		
 	}
 
 	

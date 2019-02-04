@@ -11,22 +11,31 @@ import javax.persistence.Inheritance;
 @Entity
 @DiscriminatorValue(value="Objet")
 public class Objet extends Product implements Serializable{
-	@Enumerated(EnumType.ORDINAL)
-	//@Column(name = "venue_type")
-	private SubCategObject catObjet;
+	
+	private String catObjet;
 	private String modeExpl;//A louer ou A acheter
+	private String dureeExpl;
 
-	public Objet(SubCategObject catObjet, String modeExpl) {
+	public Objet(String catObjet, String modeExpl, String dureeExpl) {
 		super();
 		this.catObjet = catObjet;
 		this.modeExpl = modeExpl;
+		this.dureeExpl= dureeExpl;
 	}
 
-	public SubCategObject getCatObjet() {
+	public String getDureeExpl() {
+		return dureeExpl;
+	}
+
+	public void setDureeExpl(String dureeExpl) {
+		this.dureeExpl = dureeExpl;
+	}
+
+	public String getCatObjet() {
 		return catObjet;
 	}
 
-	public void setCatObjet(SubCategObject catObjet) {
+	public void setCatObjet(String catObjet) {
 		this.catObjet = catObjet;
 	}
 
@@ -44,15 +53,14 @@ public class Objet extends Product implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Objet(String name, double price) {
+	public Objet(String name, double price,String catObjet, String modeExpl, String dureeExpl) {
 		super(name, price);
-		// TODO Auto-generated constructor stub
+		this.catObjet= catObjet;
+		this.modeExpl = modeExpl;
+		this.dureeExpl = dureeExpl;
 	}
 
-	public Objet(String modeExpl) {
-		super();
-		this.modeExpl = modeExpl;
-	}
+	
 	
 	
 

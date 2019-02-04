@@ -9,21 +9,41 @@ import javax.persistence.Entity;
 @DiscriminatorValue(value="Service")
 
 public class Service extends Product implements Serializable {
- private SubCategService catService;
+ private String catService;
+ private String typeFacturation;
+ 
   
 
-public Service(SubCategService catService) {
-	super();
-	this.catService = catService;
+public String getTypeFacturation() {
+	return typeFacturation;
 }
 
 
-public SubCategService getCatService() {
+public void setTypeFacturation(String typeFacturation) {
+	this.typeFacturation = typeFacturation;
+}
+
+
+public Service(String name, double price) {
+	super(name, price);
+	// TODO Auto-generated constructor stub
+}
+
+
+public Service( String name, double price, String catService, String typeFacturation) {
+	super (name,  price);
+	
+	this.catService = catService;
+	this.typeFacturation= typeFacturation;
+}
+
+
+public String getCatService() {
 	return catService;
 }
 
 
-public void setCatService(SubCategService catService) {
+public void setCatService(String catService) {
 	this.catService = catService;
 }
 

@@ -23,56 +23,37 @@ import javax.persistence.Table;
 @DiscriminatorValue(value="Supply")
 public class Supply extends Publication implements Serializable {
 	
-	private TypeSypply category;
-	private int Duration;
-	private float budget;
-	private String city;
-	private String state;
 	
-	public Supply(TypeSypply category, int duration, float budget, String city, String state) {
+	private int duration;
+	private float budget;
+	
+	
+	public Supply( int duration, float budget) {
 		super();
-		this.category = category;
-		Duration = duration;
+		
+		this.duration = duration;
 		this.budget = budget;
-		this.city = city;
-		this.state = state;
+		
 	}
 
-	public int getDuration() {
-		return Duration;
+	public int getduration() {
+		return duration;
 	}
 
 	public void setDuration(int duration) {
-		Duration = duration;
+		this.duration = duration;
 	}
 
 	public Supply() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-
 	
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	
-	
-	
-	public TypeSypply getCategory() {
-		return category;
-	}
-	public void setCategory(TypeSypply category) {
-		this.category = category;
-	}
 	public int getDuree() {
-		return Duration;
+		return this.duration;
 	}
 	public void setDuree(int duree) {
-		Duration = duree;
+		this.duration = duree;
 	}
 	public float getBudget() {
 		return budget;
@@ -80,11 +61,6 @@ public class Supply extends Publication implements Serializable {
 	public void setBudget(float budget) {
 		this.budget = budget;
 	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
+
 
 }

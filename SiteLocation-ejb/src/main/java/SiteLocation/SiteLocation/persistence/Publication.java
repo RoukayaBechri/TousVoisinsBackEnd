@@ -23,15 +23,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="typePub",discriminatorType=DiscriminatorType.STRING)
-
 public class Publication implements Serializable{
 	@Id
 	@GeneratedValue
 	private int id;
+	private String nomPublication;
 	private String description;
+	private String photo;
 	@Temporal(TemporalType.DATE)
 	private Date datePub;
-	private boolean isValidState;
+	private boolean validState;
 	
 	@OneToOne
 	private Product product;
@@ -40,11 +41,7 @@ public class Publication implements Serializable{
 	@ManyToOne
 	private SimpleUser simpleUser;
 	
-	//@OneToMany(mappedBy="publication")
-	//private List<Application> applications;
 	
-	//@OneToMany(mappedBy="publication")
-	//private List<Feedback> feedbacks;
 
 	public int getId() {
 		return id;
@@ -52,6 +49,16 @@ public class Publication implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	
+
+	public boolean isValidState() {
+		return validState;
+	}
+
+	public void setValidState(boolean validState) {
+		this.validState = validState;
 	}
 
 	public String getDescription() {
@@ -70,13 +77,7 @@ public class Publication implements Serializable{
 		this.datePub = datePub;
 	}
 
-	public boolean isValidState() {
-		return isValidState;
-	}
 
-	public void setValidState(boolean isValidState) {
-		this.isValidState = isValidState;
-	}
 
 	public Product getProduct() {
 		return product;
@@ -96,17 +97,42 @@ public class Publication implements Serializable{
 		this.simpleUser = simpleUser;
 	}
 
+	
+	public String getNomPublication() {
+		return nomPublication;
+	}
+
+	public void setNomPublication(String nomPublication) {
+		this.nomPublication = nomPublication;
+	}
+	
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
 	public Publication() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Publication(String description, Date datePub, boolean isValidState) {
+	
+
+	public Publication(String nomPublication, String description, Date datePub, boolean validState, Product product,
+			SimpleUser simpleUser) {
 		super();
+		this.nomPublication = nomPublication;
 		this.description = description;
 		this.datePub = datePub;
-		this.isValidState = isValidState;
+		this.validState = validState;
+		this.product = product;
+		this.simpleUser = simpleUser;
 	}
+	
 	
 
 }
